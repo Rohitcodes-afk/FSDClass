@@ -1,11 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyFirstPush</title>
+    <title>Rain Dental - Aesthetic & Implant Centre</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff1f1;
+        }
+
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .name {
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        #title-bar {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            height: 60px;
+            filter: invert(1);
+        }
+
+        #title-box h1 {
+            margin: 0;
+            line-height: 1;
+            border-bottom: 2px solid #d90429;
+            font-size: 24px;
+            color: white;
+        }
+
+        #title-box h5 {
+            margin: 5px 0 0 0;
+            padding: 0;
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: #ddd;
+        }
+
+        #nav-link {
+            display: flex;
+            gap: 25px;
+        }
+
+        #nav-link a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        #nav-link a:hover {
+            color: #d90429;
+        }
+
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1350&q=80");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #d90429;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+        }
+
+        .hero-btn:hover {
+            background-color: #b00322;
+        }
+
+        .services {
+            padding: 50px 10%;
+            text-align: center;
+        }
+
+        .services ul {
+            list-style-position: inside;
+            padding: 0;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .image-png {
+            display: flex;
+            padding: 30px;
+            column-count: 2;
+            justify-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .first {
+            display: flex;
+            padding: 9px;
+            height: 300px;
+            width: 400px;
+            justify-content: center;
+            box-shadow: 0px 0px 9px 0px;
+            position: relative;
+        }
+
+        .second {
+            display: flex;
+            padding: 9px;
+            height: 300px;
+            width: 400px;
+            justify-content: center;
+            box-shadow: 0px 0px 9px 0px;
+        }
+
+        .third {
+            display: flex;
+            padding: 9px;
+            height: 300px;
+            width: 400px;
+            justify-content: center;
+            box-shadow: 0px 0px 9px 0px;
+        }
+
+        .forth {
+            display: flex;
+            padding: 0px;
+            height: 300px;
+            width: 400px;
+            justify-content: center;
+            box-shadow: 0px 0px 9px 0px;
+        }
+
+        .fith {
+            display: flex;
+            padding: 9px;
+            height: 300px;
+            width: 400px;
+            justify-content: center;
+            box-shadow: 0px 0px 9px 0px;
+        }
+
+        .sixth {
+            display: flex;
+            padding: 9px;
+            height: 300px;
+            width: 400px;
+            justify-content: center;
+            box-shadow: 0px 0px 9px 0px;
+        }
+
+        .first:hover {
+            animation: mymove 0.45s 1;
+        }
+
+
+        @keyframes mymove {         
+            from {
+                transform: translateY(20px);
+            }
+
+            to {
+                transform: translateY();
+            }
+
+
+        }
+    </style>
 </head>
+
 <body>
-    
+    <header>
+        <div class="name">
+            <div id="title-bar">
+                <img class="logo" src="https://www.raindental.co.in/assets/images/logo.png" alt="Rain Dental Logo">
+                <div id="title-box">
+                    <h1>RAIN <br> DENTAL</h1>
+                    <h5>AESTHETIC & IMPLANT CENTRE</h5>
+                </div>
+            </div>
+            <nav id="nav-link">
+                <a href="#">Home</a>
+                <a href="#">Service</a>
+                <a href="#">Doctor</a>
+                <a href="#">Gallery</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h2>Your Perfect Smile Starts Here</h2>
+        <p>Expert Dental Care with a Gentle Touch</p>
+        <a href="#" class="hero-btn">Book An Appointment</a>
+    </div>
+
+    <div class="image-png">
+        <img class="first"
+            src="https://thumbs.dreamstime.com/b/happy-tooth-rainy-day-dentist-cheerful-cartoon-sticker-adorns-rain-streaked-window-dental-office-blurry-background-353227498.jpg">
+        <img class="second"
+            src="https://imgs.search.brave.com/vto9IBhvDnW7HoNMScsEOb9fJoG034eVolMIxOt0twM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jb250/ZW50LmpkbWFnaWNi/b3guY29tL3YyL2Nv/bXAvYmFuZ2Fsb3Jl/L2gyLzA4MHB4eDgw/Lnh4ODAuMjQwMzIx/MTg1MjU3Lmc2aDIv/Y2F0YWxvZ3VlL3Jh/aW4tZGVudGFsLW11/bHRpLXNwZWNpYWxp/dHktYW5kLWltcGxh/bnQtY2VudHJlLWJh/bmFzd2FkaS1iYW5n/YWxvcmUtZGVudGlz/dHMtMG44ZjVyaDIz/NS0yNTAuanBnP3c9/Mzg0MCZxPTc1">
+        <img class="third"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO02I61XcXinDDDvH94MLmXBJRSL6J30CjUA&s"><br>
+        <img class="forth"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRdL0cdijaBap8CcUbtpNPSSknDklpaXleZw&s">
+        <img class="fith"
+            src="https://img.freepik.com/free-vector/tooth-care-medicine-with-dental-toothbrush_24877-55025.jpg?semt=ais_user_personalization&w=740&q=80">
+        <img class="sixth" src="https://i.pinimg.com/736x/6e/c2/c7/6ec2c71d0ae10ceb38a903ef6ec3742c.jpg">
+    </div>
+    <div>
+
 </body>
+
 </html>
