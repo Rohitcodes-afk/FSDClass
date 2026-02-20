@@ -2,7 +2,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #fff1f1;      
+            background-color: #fff1f1;
         }
 
 
@@ -191,107 +191,52 @@
         }
 
         .first:hover {
-            animation: mymove 0.45s 1;
+            animation: moveup 0.14s forwards;
+        }
+
+        .second:hover {
+            animation: moveup 0.14s forwards;
+        }
+
+        .third:hover {
+            animation: moveup 0.14s forwards;
+        }
+
+        .forth:hover {
+            animation: moveup 0.14s forwards;
+        }
+
+        .fifth:hover {
+            animation: moveup 0.14s forwards;
+        }
+
+        .sixth:hover {
+            animation: moveup 0.14s forwards;
         }
 
 
-        @keyframes mymove {         
-            from {
-                transform: translateY(20px);
+        @keyframes moveup {
+            0% {
+                transform: translateY(0px);
             }
 
-            to {
-                transform: translateY();
+            100% {
+                transform: translateY(-20px);
             }
-
-
-        }
-         .second:hover {
-            animation: mymove 0.45s 1;
         }
 
 
-        @keyframes mymove {         
-            from {
-                transform: translateY(20px);
-            }
-
-            to {
-                transform: translateY();
-            }
 
 
-        }
-         .third:hover {
-            animation: mymove 0.45s 1;
-        }
 
 
-        @keyframes mymove {         
-            from {
-                transform: translateY(20px);
-            }
-
-            to {
-                transform: translateY();
-            }
-
-
-        }
-         .forth:hover {
-            animation: mymove 0.45s 1;
-        }
-
-
-        @keyframes mymove {         
-            from {
-                transform: translateY(20px);
-            }
-
-            to {
-                transform: translateY();
-            }
-
-
-        }
-         .fifth:hover {
-            animation: mymove 0.45s 1;
-        }
-
-
-        @keyframes mymove {         
-            from {
-                transform: translateY(20px);
-            }
-
-            to {
-                transform: translateY();
-            }
-
-
-        }
-         .sixth:hover {
-            animation: mymove 0.45s 1;
-        }
-
-
-        @keyframes mymove {         
-            from {
-                transform: translateY(20px);
-            }
-
-            to {
-                transform: translateY();
-            }
-
-
-        }
-        #middle{
+        #middle {
             display: flex;
             justify-content: center;
-            
+
         }
-        .meet{
+
+        .meet {
             display: flex;
-            
-        }   
+
+        }

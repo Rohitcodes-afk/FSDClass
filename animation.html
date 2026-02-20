@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: aliceblue;
+        }
+
+        #big-box {
+            display: flex;
+            justify-content: center;
+           align-items: center;
+            margin-top: 15%;
+            gap: 500px;
+        }
+
+        #scale,
+        #move,
+        #rotate {
+
+            display: flex;
+            margin: 5px;
+            border: 2px solid black;
+            height: 100px;
+            width: 100px;
+
+        }
+
+
+        #scale {
+            border-radius: 50%;
+            animation: mymove 3s linear infinite;
+        }
+
+
+        @keyframes mymove {
+            0% {transform: translateX(0%);}
+            25% {transform: translateX(50%);}
+            50% {transform: translateX(0%);}
+            75% {transform: translateX(-50%);}
+            100% {transform: translateX(0%);}
+            
+        }
+       
+        
+
+
+      #move{
+        animation: my2 0.3s linear infinite;
+      }  
+      @keyframes my2 {
+        100% {transform: rotate(360deg);}
+       
+      }
+
+      #rotate{
+        animation: my3 3s linear infinite;
+      }
+      @keyframes my3 {
+         0%{transform: scale(1);}
+        50%{transform: scale(2);}
+        100%{transform: scale(1);}
+    }
+      
+          </style>
+
+</head>
+
+<body>
+
+    <div id="big-box">
+
+        <div id="scale">
+
+        </div>
+
+
+        <div id="move">
+
+        </div>
+
+
+        <div id="rotate">
+
+        </div>
+
+    </div>
+</body>
+
+</html>
