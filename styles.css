@@ -86,12 +86,6 @@
             color: white;
         }
 
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
         .hero p {
             font-size: 1.5rem;
             margin-bottom: 30px;
@@ -198,47 +192,38 @@
 
         }
 
+        .Meet {
+            display: flex;
+            border-bottom: 3px solid #b00322;
+            padding: 0;
+
+        }
+
         #middle {
             display: flex;
             justify-content: center;
-
+            font-size: 2.5vw;
+            align-items: center;
+            color: #b00322;
+            padding: 0;
         }
 
-        .meet {
-            display: flex;
-
-        }
-
-        #main-container {
+        #about-docter {
             font-family: 'Inter';
             font-style: normal;
             font-weight: 400;
             display: flex;
             flex-direction: column;
             margin-left: 21rem;
-            border: 1px solid purple;
-            border-radius: 3rem;
+            border: 1px solid #ff8095;
+            border-radius: 30px;
             width: 50rem;
+            margin-top: 1.5vw;
             margin-bottom: 7rem;
             background: #0a0a0ba3 rgba(10, 10, 10, 0.7);
-        }
-
-        #middle {
-            font-size: 2rem;
-            display: flex;
-            align-items: center;
-            color: #b00322;
-        }
-
-        #about-docter {
-            padding: 0;
-            padding: 0;
-            margin-left: 2rem;
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start
-            
+            padding: 40px;
+            color: #fff;
+            background-color: black;
         }
 
         #info {
@@ -255,30 +240,39 @@
         }
 
         .Dr-name {
-            font-size: 1.5rem;
+            font-size: 2.5vw;
             margin-bottom: 0.5rem;
         }
-        #section-title{
-            margin: auto;
+
+        #section-title {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-        .section-name{
-            margin: auto;
+
+        .section-name {
+            display: flex;
+            justify-content: center;
+            margin: 0;
             color: #d90429;
+
         }
-        .img1{
+
+        .img1,
+        .img2,
+        .img3,
+        .img4 {
             margin: 15px;
             border: 1px solid purple;
             display: flex;
-            padding: 0px;       
+            padding: 0px;
             height: 300px;
             width: 400px;
             justify-content: center;
             box-shadow: 0px 0px 9px 0px;
             border-radius: 25px;
-            animation : upward 0.5s linear
-        }
-        .img1:hover{
-            animation: moveup 0.14s forwards;
+            animation: upward 0.5s linear;
+            margin-top: 0;
         }
 
-     
+        
