@@ -1,7 +1,7 @@
 function sub(a, b) {
-    console.log(a-b);
+    console.log(a/b);
     
-    return a - b;
+    return a / b;
 
 }
 
