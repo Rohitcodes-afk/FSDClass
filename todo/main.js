@@ -56,7 +56,7 @@ const style = document.createElement("style");
 style.innerHTML = `
 @keyframes mybox {
   50% { transform: rotate(-360deg);
-  100% { transform: rotate(360deg); }
+  100         % { transform: rotate(360deg); }
 }
 `;
 

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Music Player</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: #f0f2f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .player-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: center;
+        }
+
+        .album-art {
+            width: 240px;
+            height: 240px;
+            background: #e2e8f0;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            border: 1px solid black;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .album-art img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background: #edf2f7;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: #4a90e2;
+            border-radius: 10px;
+            transition: width 0.1s linear;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #4a5568;
+            transition: transform 0.2s, color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn:hover {
+            color: #2d3748;
+            transform: scale(1.1);
+        }
+
+        .btn-play {
+            background: #4a90e2;
+            color: white !important;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+        }
+
+        .btn-play:hover {
+            background: #357abd;
+        }
+
+
+        @keyframes rotateImage {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* #cover{
+            animation: rotateImage 2s linear infinite;
+        } */
+    </style>
+</head>
+
+<body>
+
+    <div class="player-card" id="card">
+        <!-- Square Image -->
+        <div class="album-art">
+            <img  src="https://p7.hiclipart.com/preview/61/747/664/music-compact-disc-phonograph-record-icon-cd.jpg"
+                alt="Album Art" id="cover">
+        </div>
+
+        <div class="mb-4">
+            <h2 class="text-xl font-bold text-gray-800" id="title">Lo-fi Chill</h2>
+            <p class="text-gray-500 text-sm" id="artist">Study Beats</p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container" id="progress-container">
+            <div class="progress-bar" id="progress"></div>
+        </div>
+
+        <!-- Hidden Audio Element -->
+        <audio id="audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="btn" id="prev">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 6h2v12H6zm3.5 6L18 6v12z" />
+                </svg>
+            </button>
+            <button class="btn btn-play" id="play" onclick="rotateCircle()" ondblclick="buttion1()">
+                <svg id="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z" />
+                </svg>
+            </button>
+            <button class="btn" id="next">
+
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        var circle = document.getElementById("cover");
+        var buttion = document.getElementsByClassName("controls");
+        // let player = document.getElementById("card")
+
+        function rotateCircle() {
+            circle.style.animation = "rotateImage 3s linear infinite"
+            // player.style.animation = "rotateImage 3s linear infinite"
+
+        }
+
+        function buttion1(){
+            circle.style.animationPlayState = "paused"
+        }
+
+
+
+    </script>
+</body>
+
+</html>
