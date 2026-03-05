@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Grade Checker</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #43494e, #00f2fe);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #b6b6b6;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #4facfe;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #007bff;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Student Grade Checker</h2>
+        <input type="number" id="marks" placeholder="Enter your marks">
+        <br>
+        <button onclick="checkGrade()">Check Grade</button>
+        <p id="result"></p>
+    </div>
+
+
+
+    <script>
+
+        function checkGrade() {
+
+            var marks = document.getElementById("marks").value;
+            var result = document.getElementById("result");
+
+            if (marks >= 90) {
+                result.innerHTML = "Grade: A"; 
+            }
+            else if (marks >= 75) {
+                result.innerHTML = "Grade: B";
+            }
+            else if (marks >= 50) {
+                result.innerHTML = "Grade: C";
+            }
+             else if (marks >= 35) {
+                result.innerHTML = "Grade: D";
+            }
+            else {
+                result.innerHTML = "Result: Fail";
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
