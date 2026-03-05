@@ -82,11 +82,17 @@
             justify-content: center;
         }
 
+        #paused {
+            display: none;
+
+        }
+
         .btn:hover {
             color: #2d3748;
             transform: scale(1.1);
         }
 
+        #paused,
         .btn-play {
             background: #4a90e2;
             color: white !important;
@@ -106,6 +112,26 @@
                 transform: rotate(360deg);
             }
         }
+         @keyframes rotateImage1 {
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+
+        #cover1 {
+            width: 9vw;
+            height: auto;
+            /* object-fit: cover; */
+            position: absolute;
+            border-radius: 50%;
+            display: flex;
+            margin-left: 11.2vw;
+            margin-top: 11vw;
+            z-index: 1;
+        }
+
+
+
 
         /* #cover{
             animation: rotateImage 2s linear infinite;
@@ -118,9 +144,18 @@
     <div class="player-card" id="card">
         <!-- Square Image -->
         <div class="album-art">
-            <img  src="https://p7.hiclipart.com/preview/61/747/664/music-compact-disc-phonograph-record-icon-cd.jpg"
-                alt="Album Art" id="cover">
+            <div>
+                <div>
+                    <img src="https://p7.hiclipart.com/preview/61/747/664/music-compact-disc-phonograph-record-icon-cd.jpg"
+                        alt="Album Art" id="cover1">
+                </div>
+                <img src="https://img.freepik.com/free-vector/illustration-hanuman-jayanti-with-lord-hanuman-celebration-background_1035-30936.jpg"
+                    alt="Album Art" id="cover">
+            </div>
         </div>
+
+
+
 
         <div class="mb-4">
             <h2 class="text-xl font-bold text-gray-800" id="title">Lo-fi Chill</h2>
@@ -142,11 +177,20 @@
                     <path d="M6 6h2v12H6zm3.5 6L18 6v12z" />
                 </svg>
             </button>
-            <button class="btn btn-play" id="play" onclick="rotateCircle()" ondblclick="buttion1()">
+            <button class="btn btn-play" id="play" onclick="rotateCircle()">
                 <svg id="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M8 5v14l11-7z" />
                 </svg>
+                <audio id="song">
+                    <source src="./src/Jaydeep_Bagwadkar_Ram_Doot_Hanuman_-_Hanuman_Chalisa_(mp3.pm).mp3 ">
+                </audio>
             </button>
+            <button class="btn btn-pause" id="paused" onclick="pausedCircle()">
+                <svg id="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 5h4v14H6zm8 0h4v14h-4z" />
+                </svg>
+            </button>
+
             <button class="btn" id="next">
 
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -159,16 +203,25 @@
     <script>
         var circle = document.getElementById("cover");
         var buttion = document.getElementsByClassName("controls");
-        // let player = document.getElementByxccId("card")
+        var paused1 = document.getElementById("paused");
+        var play1 = document.getElementById("play");
+        var song1 = document.getElementById("song")
+        var cover1 = document.getElementById("cover1")
 
         function rotateCircle() {
+            song1.play();
             circle.style.animation = "rotateImage 3s linear infinite"
-            // player.style.animation = "rotateImage 3s linear infinite"
-
+            cover1.style.animation ="rotateImage1 3s linear infinite"
+            paused1.style.display = "flex"
+            play1.style.display = "none"
         }
 
-        function buttion1(){
+        function pausedCircle() {
+            song1.pause();
+            cover1.style.animationPlayState = "paused"
             circle.style.animationPlayState = "paused"
+            play1.style.display = "flex"
+            paused1.style.display = "none"
         }
 
 
