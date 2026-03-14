@@ -255,7 +255,7 @@
 </head>
 
 <body>
-    <header>
+    <header id="hide1">
         <div id="heading-m">
             <div id="heading">
                 <b>
@@ -264,7 +264,7 @@
             </div>
     </header>
 
-    <section>
+    <section id="hideHead">
         <div>
             <div>
                 <h3 id="main-Collage-Header1">College / School Name :- Raj Computer Center</h3>
@@ -492,12 +492,16 @@
         let TotalResult = document.getElementById("TotalResult");
         let totalGrade = document.getElementById("totalGrade");
         let hideSheet = document.getElementById("hideSheet");
-
+        let hideHead = document.getElementById("hideHead");
+        let hide1 = document.getElementById("hide1");
 
 
 
         button1.addEventListener("click", () => {
             hideSheet.style.display = "flex";
+            hideHead.style.display = "none"
+            hide1.style.display = "none "
+
 
             OutPutCourse.innerText = Course.value;
             OutPutSemester.innerText = InputSemester.value;
@@ -542,7 +546,6 @@
             } else if (percentage > 100) {
                 totalGrade.innerText = "Wrong Marks"
             }
-
             function getGrade(Marks) {
                 if (Marks < 30) return "Fail"
                 if (Marks < 50) return "E"
@@ -582,9 +585,9 @@
             }
             else {
                 TotalResult.innerText = "Wrong Marks"
+                
             }
         })    
     </script>
 </body>
-
 </html>
