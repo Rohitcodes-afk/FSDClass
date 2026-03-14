@@ -19,17 +19,11 @@
             padding-bottom: 1px;
         }
 
-        #Course-box1,
         #Course-box {
             display: flex;
             margin-top: 1vh;
             align-items: center;
             /* justify-content: center; */
-            gap: 1vw;
-        }
-
-        #Course-box1 {
-            gap: 0;
         }
 
         #heading-m {
@@ -40,24 +34,16 @@
 
         .College-name {
             display: flex;
-            border: 1px solid #00000038;
-            padding: 0.3vw;
+            border: 2px solid #00000038;
+            padding: 0.7vw;
             border-radius: 10px;
-            width: 10vw;
-            height: 1.3vw;
-
-
-        }
-
-        .College-name:hover {
-            box-shadow: 0PX 0PX 2px 0px red;
+            justify-content: center;
         }
 
         #input-main {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            /* flex-wrap: wrap; */
         }
 
         #gen-btn {
@@ -180,77 +166,6 @@
         .c-th {
             width: 7.4vw;
         }
-
-        .p-text {
-            font-size: 0.90vw;
-        }
-
-
-        #divpart {
-            display: flex;
-            /* gap: 11vw; */
-            justify-content: space-between;
-
-        }
-
-        #divpart1 {
-            display: flex;
-            /* gap: 5.85vw; */
-        }
-
-        #divpart2 {
-            display: flex;
-            /* gap: 6.5vw; */
-        }
-
-        #inPutMathematicsMarks {
-            display: flex;
-            /* gap: 10px; */
-        }
-
-        #p-text1 {
-            margin-left: 3vw;
-        }
-
-        #p-text2 {
-            margin-left: 3vw;
-        }
-
-        #p-textSemester {
-            margin-left: 3vw;
-        }
-
-        #p-text-dob {
-            margin-left: 11.1vw;
-        }
-
-        #p-textC {
-            margin-left: 5.65vw;
-        }
-
-        #p-textJava {
-            margin-left: 8.5vw;
-        }
-
-        #p-textMath {
-            margin-left: 11.4vw;
-        }
-
-        #text-fsd {
-            margin-left: 3.65vw;
-        }
-
-        ::placeholder {
-            font-size: 0.8vw;
-        }
-
-        .textmainJava {
-            gap: 0px;
-        }
-
-        #inPutJavaProgrammingMarks {
-            margin-left: 0.1vw;
-        }
     </style>
 </head>
 
@@ -270,57 +185,51 @@
                 <h3 id="main-Collage-Header1">College / School Name :- Raj Computer Center</h3>
             </div>
             <div id="input-main">
-                <div id="divpart">
-                    <div id="Course-box">
-                        <h3 class="p-text" id="p-text1">Course:-</h3>
-                        <input class="College-name" id="StudentCourse" type="text" placeholder="Course">
-                    </div>
-                    <div id="Course-box">
-                        <h3 class="p-text" id="p-textSemester">Semester:-</h3>
-                        <input class="College-name" id="InputSemester" type="text" placeholder="Semester">
-                    </div>
-                    <div id="Course-box">
-                        <h3 class="p-text">Roll No:-</h3>
-                        <input class="College-name" id="inPutRollNumber" type="text" placeholder="Roll No">
-                    </div>
-                    <div id="Course-box">
-                        <h3 class="p-text">Student Name:-</h3>
-                        <input class="College-name" id="inPutStudentName" type="text" placeholder="Student Name">
-                    </div>
+                <div id="Course-box">
+                    <h3>Course:-</h3>
+                    <input class="College-name" id="StudentCourse" type="text" placeholder="Course">
                 </div>
-                <div id="divpart1">
-                    <div id="Course-box">
-                        <h3 class="p-text">Father's Name:-</h3>
-                        <input class="College-name" id="InPutFaterName" type="text" placeholder="Father's Name">
-                    </div>
-                    <div id="Course-box">
-                        <h3 class="p-text" id="p-text-dob">Date of Birth :-</h3>
-                        <input class="College-name" id="inPutDateOfBirth" type="date" placeholder="Student Name">
-                    </div>
-                    <div id="Course-box">
-                        <h3 class="p-text" id="p-textC">C++ Programming:-</h3>
-                        <input class="College-name" type="text" id="inputCPrograming" placeholder="C++ Programming">
-                    </div>
-                    <div id="Course-box1" class="textmainJava">
-                        <h3 class="p-text" id="p-textJava">Java Programming:-</h3>
-                        <input class="College-name" id="inPutJavaProgrammingMarks" type="text"
-                            placeholder="Java Programming">
-                    </div>
+                <div id="Course-box">
+                    <h3>Semester:-</h3>
+                    <input class="College-name" id="InputSemester" type="text" placeholder="Semester">
                 </div>
-                <div id="divpart2">
-                    <div id="Course-box">
-                        <h3 class="p-text" id="p-text2">HTML:-</h3>
-                        <input class="College-name" type="text" id="inPutHTMLMarks" placeholder="HTML">
-                    </div>
-                    <div id="Course-box">
-                        <h3 class="p-text" id="p-textMath">Mathematics:-</h3>
-                        <input class="College-name" type="text" id="inPutMathematicsMarks" placeholder="Mathematics">
-                    </div>
-                    <div id="Course-box">
-                        <h3 class="p-text" id="text-fsd">Full Stack Development:-</h3>
-                        <input class="College-name" type="text" id="InputFullStackDevMarks"
-                            placeholder="Full Stack Development">
-                    </div>
+                <div id="Course-box">
+                    <h3>Roll No:-</h3>
+                    <input class="College-name" id="inPutRollNumber" type="text" placeholder="Roll No">
+                </div>
+                <div id="Course-box">
+                    <h3>Student Name:-</h3>
+                    <input class="College-name" id="inPutStudentName" type="text" placeholder="Student Name">
+                </div>
+                <div id="Course-box">
+                    <h3>Father's Name:-</h3>
+                    <input class="College-name" id="InPutFaterName" type="text" placeholder="Father's Name">
+                </div>
+                <div id="Course-box">
+                    <h3>Date of Birth :-</h3>
+                    <input class="College-name" id="inPutDateOfBirth" type="date" placeholder="Student Name">
+                </div>
+                <div id="Course-box">
+                    <h3>C++ Programming:-</h3>
+                    <input class="College-name" type="text" id="inputCPrograming" placeholder="C++ Programming">
+                </div>
+                <div id="Course-box">
+                    <h3>Java Programming:-</h3>
+                    <input class="College-name" id="inPutJavaProgrammingMarks" type="text"
+                        placeholder="Java Programming">
+                </div>
+                <div id="Course-box">
+                    <h3>HTML:-</h3>
+                    <input class="College-name" type="text" id="inPutHTMLMarks" placeholder="HTML">
+                </div>
+                <div id="Course-box">
+                    <h3>Mathematics:-</h3>
+                    <input class="College-name" type="text" id="inPutMathematicsMarks" placeholder="Mathematics">
+                </div>
+                <div id="Course-box">
+                    <h3>Full Stack Development:-</h3>
+                    <input class="College-name" type="text" id="InputFullStackDevMarks"
+                        placeholder="Full Stack Development">
                 </div>
             </div>
         </div>
@@ -495,95 +404,131 @@
 
 
 
+button1.addEventListener("click", () => {
 
-        button1.addEventListener("click", () => {
-            hideSheet.style.display = "flex";
+    hideSheet.style.display = "flex";
 
-            OutPutCourse.innerText = Course.value;
-            OutPutSemester.innerText = InputSemester.value;
-            outputRollNumber.innerText = inPutRollNumber.value;
-            outPutStudetName.innerText = inPutStudentName.value;
-            OutPutFatherName.innerText = InPutFaterName.value;
-            outPutDateOfBirth.innerText = inDateOfBirth.value;
-            OutPutCProgramaingMarkS.innerText = inputCPrograming.value;
-            OutPutJavaProgrammingMarks.innerText = inPutJavaProgrammingMarks.value;
-            outPutHTMLMarks.innerText = inPutHTMLMarks.value;
-            outPutMathematicsmarks.innerText = inPutMathematicsMarks.value;
-            outPutFullStackDevMarks.innerText = InputFullStackDevMarks.value;
+    // Student Info
+    OutPutCourse.innerText = Course.value;
+    OutPutSemester.innerText = InputSemester.value;
+    outputRollNumber.innerText = inPutRollNumber.value;
+    outPutStudetName.innerText = inPutStudentName.value;
+    OutPutFatherName.innerText = InPutFaterName.value;
+    outPutDateOfBirth.innerText = inDateOfBirth.value;
 
-            let cprog = Number(inputCPrograming.value);
-            let html = Number(inPutHTMLMarks.value);
-            let fsd = Number(InputFullStackDevMarks.value);
-            let Mathematics = Number(inPutMathematicsMarks.value);
-            let java = Number(inPutJavaProgrammingMarks.value);
-            let total = cprog + html + fsd + Mathematics + java; // Total Marks
+    // Marks
+    let cprog = Number(inputCPrograming.value);
+    let java = Number(inPutJavaProgrammingMarks.value);
+    let html = Number(inPutHTMLMarks.value);
+    let Mathematics = Number(inPutMathematicsMarks.value);
+    let fsd = Number(InputFullStackDevMarks.value);
 
-            console.log(total); //log
-            totalMarks.innerText = total;
-            // Calculate percentage once    
-            let percentage = total / 5;
-            outPutpercentage.innerText = percentage + "%";
+    // Show Marks
+    OutPutCProgramaingMarkS.innerText = cprog;
+    OutPutJavaProgrammingMarks.innerText = java;
+    outPutHTMLMarks.innerText = html;
+    outPutMathematicsmarks.innerText = Mathematics;
+    outPutFullStackDevMarks.innerText = fsd;
 
-            // Logic: Start from the top
-            if (percentage < 30) {
-                totalGrade.innerText = "Fail(F)"
-            } else if (percentage < 50) {
-                totalGrade.innerText = "E"
-            } else if (percentage < 60) {
-                totalGrade.innerText = "D"
-            } else if (percentage < 70) {
-                totalGrade.innerText = "C"
-            } else if (percentage < 80) {
-                totalGrade.innerText = "B"
-            } else if (percentage < 90) {
-                totalGrade.innerText = "A"
-            } else if (percentage <= 100) {
-                totalGrade.innerText = "A+"
-            } else if (percentage > 100) {
-                totalGrade.innerText = "Wrong Marks"
-            }
+    // ---------- FUNCTIONS ----------
 
-            function getGrade(Marks) {
-                if (Marks < 30) return "Fail"
-                if (Marks < 50) return "E"
-                if (Marks < 60) return "D"
-                if (Marks < 70) return "C"
-                if (Marks < 80) return "B"
-                if (Marks < 90) return "A"
-                if (Marks <= 100) return "A+"
-                return "Wrong Marks"
-            }
-            function getResult(Marks) {
-                if (Marks < 30) return "Fail"
-                if (Marks <= 100) return "Pass"
-                return "Wrong Marks"
-            }
+    function getResult(mark) {
+        if (mark < 30) return "Fail";
+        if (mark <= 100) return "Pass";
+        return "Wrong Marks";
+    }
 
-            // C++ PrC++ Programming
-            OutPutCgrade.innerText = getGrade(cprog);
-            cresult.innerText = getResult(cprog);
-            //Java Programming
-            outPutJavaGrade.innerText = getGrade(java);
-            OutPutJavaProgrammingSubjectWiseMarks.innerText = getResult(java)
-            //HTML
-            OutPuthtmlgrade.innerText = getGrade(html);
-            outputResulthtml.innerText = getResult(html);
-            //Mathematics
-            outputmathematicsgrade.innerText = getGrade(Mathematics);
-            outputResltmath.innerText = getResult(Mathematics);
-            //Full Stack Development
-            outputfsdgrade.innerText = getGrade(fsd);
-            outputResultFSD.innerText = getResult(fsd);
-            if (cprog < 30 || html < 30 || java < 30 || fsd < 30 || Mathematics < 30) {
-                TotalResult.innerText = "Fail"
-            }
-            else if (cprog <= 100 && html <= 100 && java <= 100 && fsd <= 100 && Mathematics <= 100) {
-                TotalResult.innerText = "Pass"
-            }
-            else {
-                TotalResult.innerText = "Wrong Marks"
-            }
-        })    
+    function getGrade(mark) {
+        if (mark < 30) return "Fail(F)";
+        if (mark < 50) return "E";
+        if (mark < 60) return "D";
+        if (mark < 70) return "C";
+        if (mark < 80) return "B";
+        if (mark < 90) return "A";
+        if (mark <= 100) return "A+";
+        return "Wrong Marks";
+    }
+
+    // ---------- C PROGRAMMING ----------
+
+    cresult.innerText = getResult(cprog);
+    OutPutCgrade.innerText = getGrade(cprog);
+
+    // ---------- JAVA ----------
+
+    OutPutJavaProgrammingSubjectWiseMarks.innerText = getResult(java);
+    outPutJavaGrade.innerText = getGrade(java);
+
+    // ---------- HTML ----------
+
+    outputResulthtml.innerText = getResult(html);
+    OutPuthtmlgrade.innerText = getGrade(html);
+
+    // ---------- MATHEMATICS ----------
+
+    outputResltmath.innerText = getResult(Mathematics);
+    outputmathematicsgrade.innerText = getGrade(Mathematics);
+
+    // ---------- FULL STACK ----------
+
+    outputResultFSD.innerText = getResult(fsd);
+    outputfsdgrade.innerText = getGrade(fsd);
+
+    // ---------- TOTAL RESULT ----------
+
+    let isPass =
+        cprog >= 30 &&
+        java >= 30 &&
+        html >= 30 &&
+        Mathematics >= 30 &&
+        fsd >= 30;
+
+    if (isPass) {
+        TotalResult.innerText = "Pass";
+    } else {
+        TotalResult.innerText = "Fail";
+    }
+
+    // ---------- TOTAL MARKS ----------
+
+    let total = cprog + java + html + Mathematics + fsd;
+    totalMarks.innerText = total;
+
+    // ---------- PERCENTAGE ----------
+
+    let percentage = total / 5;
+    outPutpercentage.innerText = percentage.toFixed(2) + "%";
+
+    // ---------- TOTAL GRADE ----------
+
+    if (percentage < 30 || !isPass) {
+        totalGrade.innerText = "F";
+    }
+    else if (percentage < 50) {
+        totalGrade.innerText = "E";
+    }
+    else if (percentage < 60) {
+        totalGrade.innerText = "D";
+    }
+    else if (percentage < 70) {
+        totalGrade.innerText = "C";
+    }
+    else if (percentage < 80) {
+        totalGrade.innerText = "B";
+    }
+    else if (percentage < 90) {
+        totalGrade.innerText = "A";
+    }
+    else if (percentage <= 100) {
+        totalGrade.innerText = "A+";
+    }
+    else {
+        totalGrade.innerText = "Wrong Marks";
+    }
+
+});
+
+
     </script>
 </body>
 
