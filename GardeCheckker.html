@@ -4,252 +4,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student Marksheet</title>
     <style>
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        #heading {
-            display: flex;
-            justify-content: center;
-            font-size: 2vw;
-            border-bottom: 0.5vw double black;
-            padding-bottom: 1px;
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 2vw;
+            color: #333;
         }
 
-        #Course-box1,
-        #Course-box {
-            display: flex;
-            margin-top: 1vh;
-            align-items: center;
-            /* justify-content: center; */
-            gap: 1vw;
-        }
-
-        #Course-box1 {
-            gap: 0;
+        header, section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            padding: 2.5vw;
+            margin: 0 auto 2vw auto;
+            max-width: 80vw;
         }
 
         #heading-m {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .College-name {
-            display: flex;
-            border: 1px solid #00000038;
-            padding: 0.3vw;
-            border-radius: 10px;
-            width: 10vw;
-            height: 1.3vw;
-
-
-        }
-
-        .College-name:hover {
-            box-shadow: 0PX 0PX 2px 0px red;
-        }
-
-        #input-main {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            /* flex-wrap: wrap; */
-        }
-
-        #gen-btn {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1vw;
-        }
-
-        button {
-            padding: 10px;
-            border-radius: 6px;
-            border: 1px solid black;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: greenyellow;
-        }
-
-        #main-h {
-            display: flex;
-            gap: 20vw;
-        }
-
-        th,
-        td {
-            border: 1px solid black;
-            margin: 0px;
-            padding: 0.5vw;
             text-align: center;
-
         }
 
-        th {
-            background-color: rgb(0 0 0 / 11%);
-            font-size: 1.4vw;
-
-        }
-
-        td {
-            font-size: 1.5vw;
-        }
-
-        #table-Main {
-            display: flex;
-            justify-content: center;
-            margin-top: 2vw;
-
-        }
-
-        #ResultSummary,
-        #SubjectWise {
-            display: flex;
-            justify-content: center;
-            margin-top: 3vh;
-            font-size: 2vw;
-        }
-
-        #ResultSummary,
-        #table-Main1 {
-            display: flex;
-            justify-content: center;
-        }
-
-        #hideSheet {
-            display: none;
-            align-items: center;
-            justify-content: center;
-        }
-
-        table {
-            border-collapse: collapse;
-        }
-
-        #Marksheet-Div {
-            border: 1px solid black;
-            width: 60%;
-            display: flex;
-            justify-content: center;
-            box-shadow: 0px 0px 3px 0px #33496B;
-            padding: 3vw;
-        }
-
-        .h-c {
-            width: 12.05vw;
-            padding: 0.4vw;
-        }
-
-        .l-t {
-            width: 9.46vw;
-            padding: 0.4vw;
-        }
-
-        #StudentMarksheet {
-            color: rgb(205, 50, 50);
-        }
-
-        th {
-            background-color: rgb(51, 73, 107);
-            color: white;
-        }
-
-        input {
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1vw;
             text-transform: uppercase;
-        }
-
-        #main-Collage-Header {
+            letter-spacing: 1px;
+            border-bottom: 3px solid #4a90e2;
+            padding-bottom: 0.5vw;
+            display: inline-block;
             font-size: 2vw;
         }
 
         #main-Collage-Header1 {
-            font-size: 1.8vw;
+            text-align: center;
+            color: #555;
+            margin-bottom: 2vw;
+            font-size: 1.5vw;
         }
 
-        .main-Collage-Header3 {
-            font-size: 1.6vw;
+        .p-text, .subject-label {
+            font-size: 1vw;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 0.5vw;
+            text-align: left;
+            width: 100%;
         }
 
-        .c-th {
-            width: 7.4vw;
+        .College-name {
+            width: 100%;
+            padding: 0.8vw 1vw;
+            border: 2px solid #e0e6ed;
+            border-radius: 8px;
+            font-size: 1vw;
+            transition: all 0.3s ease;
+            background: #f8fafc;
         }
 
-        .p-text {
-            font-size: 0.90vw;
+        .College-name:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+            background: #fff;
         }
 
+        #divpart, #divpart1 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2vw;
+            margin-bottom: 1.5vw;
+            width: 100%;
+        }
 
-        #divpart {
+        #Course-box {
             display: flex;
-            /* gap: 11vw; */
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        #dynamic-subjects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2vw;
+            margin-top: 1vw;
+            padding: 2vw;
+            border: 2px dashed #4a90e2;
+            border-radius: 12px;
+            background: rgba(74, 144, 226, 0.05);
+            width: 100%;
+        }
+
+        #gen-btn {
+            text-align: center;
+            margin-top: 2vw;
+        }
+
+        button {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+            padding: 1vw 3vw;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2vw;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 1.5vw;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            padding: 1.2vw;
+            text-align: center;
+            border: 1px solid #edf2f7;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 1vw;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            background-color: white;
+            font-size: 1.1vw;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f8fafc;
+        }
+
+        #Marksheet-Div {
+            background: white;
+            width: 100%;
+            border-radius: 15px;
+            padding: 4vw;
+            border: 1px solid #e0e6ed;
+            position: relative;
+        }
+        
+        #Marksheet-Div::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 10px;
+            background: linear-gradient(90deg, #4a90e2, #357abd);
+            border-radius: 15px 15px 0 0;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        #hideSheet {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        #main-h {
+            display: flex;
             justify-content: space-between;
-
+            margin-bottom: 2vw;
+            background: #f8fafc;
+            padding: 1.5vw;
+            border-radius: 8px;
+            border: 1px solid #edf2f7;
         }
-
-        #divpart1 {
-            display: flex;
-            /* gap: 5.85vw; */
-        }
-
-        #divpart2 {
-            display: flex;
-            /* gap: 6.5vw; */
-        }
-
-        #inPutMathematicsMarks {
-            display: flex;
-            /* gap: 10px; */
-        }
-
-        #p-text1 {
-            margin-left: 3vw;
-        }
-
-        #p-text2 {
-            margin-left: 3vw;
-        }
-
-        #p-textSemester {
-            margin-left: 3vw;
-        }
-
-        #p-text-dob {
-            margin-left: 11.1vw;
-        }
-
-        #p-textC {
-            margin-left: 5.65vw;
-        }
-
-        #p-textJava {
-            margin-left: 8.5vw;
-        }
-
-        #p-textMath {
-            margin-left: 11.4vw;
-        }
-
-        #text-fsd {
-            margin-left: 3.65vw;
-        }
-
-        ::placeholder {
-            font-size: 0.8vw;
-        }
-
-        .textmainJava {
-            gap: 0px;
-        }
-
-        #inPutJavaProgrammingMarks {
-            margin-left: 0.1vw;
+        
+        .main-Collage-Header3 {
+            font-size: 1.2vw;
+            color: #2c3e50;
         }
     </style>
 </head>
@@ -257,337 +210,300 @@
 <body>
     <header id="hide1">
         <div id="heading-m">
-            <div id="heading">
-                <b>
-                    <h2>STUDENT MARKSHEET</h2>
-                </b>
-            </div>
+            <h2>STUDENT MARKSHEET GENERATOR</h2>
+        </div>
     </header>
 
     <section id="hideHead">
         <div>
-            <div>
-                <h3 id="main-Collage-Header1">College / School Name :- Raj Computer Center</h3>
-            </div>
+            <h3 id="main-Collage-Header1"> RAJ COMPUTER CENTRE</h3>
+            
             <div id="input-main">
+                <!-- Row 1: Basic Info -->
                 <div id="divpart">
                     <div id="Course-box">
-                        <h3 class="p-text" id="p-text1">Course:-</h3>
-                        <input class="College-name" id="StudentCourse" type="text" placeholder="Course">
+                        <h3 class="p-text">Semester:-</h3>
+                        <input class="College-name" id="InputSemester" type="text" placeholder="Enter Semester">
                     </div>
                     <div id="Course-box">
-                        <h3 class="p-text" id="p-textSemester">Semester:-</h3>
-                        <input class="College-name" id="InputSemester" type="text" placeholder="Semester">
-                    </div>
-                    <div id="Course-box">
-                        <h3 class="p-text">Roll No:-</h3>
-                        <input class="College-name" id="inPutRollNumber" type="text" placeholder="Roll No">
+                        <h3 class="p-text">Roll Number:-</h3>
+                        <input class="College-name" id="inPutRollNumber" type="text" placeholder="Roll Number">
                     </div>
                     <div id="Course-box">
                         <h3 class="p-text">Student Name:-</h3>
                         <input class="College-name" id="inPutStudentName" type="text" placeholder="Student Name">
                     </div>
                 </div>
+
+                <!-- Row 2: Student Info and Course Dropdown -->
                 <div id="divpart1">
                     <div id="Course-box">
                         <h3 class="p-text">Father's Name:-</h3>
                         <input class="College-name" id="InPutFaterName" type="text" placeholder="Father's Name">
                     </div>
                     <div id="Course-box">
-                        <h3 class="p-text" id="p-text-dob">Date of Birth :-</h3>
-                        <input class="College-name" id="inPutDateOfBirth" type="date" placeholder="Student Name">
+                        <h3 class="p-text">Date of Birth :-</h3>
+                        <input class="College-name" id="inPutDateOfBirth" type="date">
                     </div>
                     <div id="Course-box">
-                        <h3 class="p-text" id="p-textC">C++ Programming:-</h3>
-                        <input class="College-name" type="text" id="inputCPrograming" placeholder="C++ Programming">
-                    </div>
-                    <div id="Course-box1" class="textmainJava">
-                        <h3 class="p-text" id="p-textJava">Java Programming:-</h3>
-                        <input class="College-name" id="inPutJavaProgrammingMarks" type="text"
-                            placeholder="Java Programming">
+                        <h3 class="p-text">Course:-</h3>
+                        <select class="College-name" id="StudentCourse">
+                            <option value="" disabled selected>Select Course</option>
+                            <option value="FSD">FSD (Full Stack Development)</option>
+                            <option value="Web Design">Web Design</option>
+                            <option value="Graphic Design">Graphic Design</option>
+                        </select>
                     </div>
                 </div>
-                <div id="divpart2">
-                    <div id="Course-box">
-                        <h3 class="p-text" id="p-text2">HTML:-</h3>
-                        <input class="College-name" type="text" id="inPutHTMLMarks" placeholder="HTML">
-                    </div>
-                    <div id="Course-box">
-                        <h3 class="p-text" id="p-textMath">Mathematics:-</h3>
-                        <input class="College-name" type="text" id="inPutMathematicsMarks" placeholder="Mathematics">
-                    </div>
-                    <div id="Course-box">
-                        <h3 class="p-text" id="text-fsd">Full Stack Development:-</h3>
-                        <input class="College-name" type="text" id="InputFullStackDevMarks"
-                            placeholder="Full Stack Development">
-                    </div>
+
+                <!-- Dynamic Subjects Container -->
+                <div id="dynamic-subjects" class="hidden">
+                    <!-- Subjects will be injected here via Javascript -->
                 </div>
+
             </div>
         </div>
+        
         <div id="gen-btn">
             <button id="button1" type="button">Generate Marksheet</button>
         </div>
     </section>
 
-
+    <!-- Marksheet Output Section -->
     <section id="hideSheet">
         <div id="Marksheet-Div">
-            <div id="heading-m">
-                <div id="heading">
-                    <b>
-                        <h2 id="StudentMarksheet">STUDENT MARKSHEET</h2>
-                    </b>
-                </div>
-                <div>
-                    <h3 id="main-Collage-Header1">College / School Name :- Raj Computer Center</h3>
-                </div>
+            <div id="heading-m" style="width: 100%;">
+                <h2>STUDENT MARKSHEET</h2>
+                <h3 id="main-Collage-Header1"> RAJ COMPUTER CENTRE</h3>
+                
                 <div id="main-h">
-                    <div id="Course-box">
-                        <h3 class="main-Collage-Header3">Course:-</h3>
-                        <h3 id="marks-course"></h3>
+                    <div id="Course-box" style="margin-top: 0; width: auto;">
+                        <h3 class="main-Collage-Header3">Course: <span id="marks-course" style="color: #4a90e2; font-weight: bold;"></span></h3>
                     </div>
-                    <div>
-                        <div id="Course-box">
-                            <h3 class="main-Collage-Header3">Semester:-</h3>
-                            <h3 id="marks-semester"></h3>
-                        </div>
+                    <div id="Course-box" style="margin-top: 0; width: auto;">
+                        <h3 class="main-Collage-Header3">Semester: <span id="marks-semester" style="color: #4a90e2; font-weight: bold;"></span></h3>
                     </div>
                 </div>
+                
                 <div id="main-table-div">
+                    <!-- Student Info Table -->
                     <div id="table-Main">
                         <table>
                             <tr>
-                                <th class="h-c">Roll NO</th>
-                                <th class="h-c">Student Name</th>
-                                <th class="h-c">Father's Name</th>
-                                <th class="h-c">Date of Birth</th>
+                                <th>Roll Number</th>
+                                <th>Student Name</th>
+                                <th>Father's Name</th>
+                                <th>Date of Birth</th>
                             </tr>
-                            <tr id="marks-table">
-                                <td class="marks-table" id="outputRollNumber">000 </td> <!--Roll No -->
-                                <td class="marks-table" id="outPutStudetName">000 </td> <!--Student Name -->
-                                <td class="marks-table" id="OutPutFatherName">000 </td> <!--Father's Name -->
-                                <td class="marks-table" id="outPutDateOfBirth">000 </td> <!--Date of birth -->
+                            <tr>
+                                <td id="outputRollNumber">000</td>
+                                <td id="outPutStudetName">000</td>
+                                <td id="OutPutFatherName">000</td>
+                                <td id="outPutDateOfBirth">000</td>
                             </tr>
                         </table>
                     </div>
-                    <div>
-                        <div>
-                            <b>
-                                <h2 id="SubjectWise">Subject Wise Marks</h2>
-                            </b>
+                    
+                    <!-- Subject Wise Marks Table -->
+                    <div style="margin-top: 3vw;">
+                        <div id="heading-m">
+                            <h2 style="font-size: 1.5vw;">Subject Wise Marks</h2>
                         </div>
-                        <table id="table-Main1">
-                            <tr>
-                                <th class="c-th">Sr No.</th>
-                                <th class="c-th">Subject Name</th>
-                                <th class="c-th">Max Marks</th>
-                                <th class="c-th">Obtained Marks</th>
-                                <th class="c-th">Grade</th>
-                                <th class="c-th">Result</th>
-                            </tr>
-                            <tr id="marks-table">
-                                <td class="marks-table">1 </td> <!--Sr1 -->
-                                <td class="marks-table">C++ Programming</td> <!--C++ Programming -->
-                                <td class="marks-table">100 </td> <!--Max Marks -->
-                                <td class="marks-table" id="OutPutMarkS">000 </td> <!--Obtained -->
-                                <td class="marks-table" id="OutPutCgrade">000 </td> <!--Grade -->
-                                <td id="cresult" class="marks-table">000 </td> <!--Result -->
-                            </tr>
-                            <tr id="marks-table">
-                                <td class="marks-table">2</td> <!--Sr2 -->
-                                <td class="marks-table">Java Programming </td> <!--Java Programming -->
-                                <td class="marks-table">100 </td> <!--Max Marks -->
-                                <td class="marks-table" id="OutPutJavaProgrammingMarks">000 </td> <!--Obtained -->
-                                <td class="marks-table" id="outPutJavaGrade">000 </td> <!--Grade -->
-                                <td class="marks-table" id="OutPutJavaProgrammingSubjectWiseMarks">000 </td>
-                                <!--Result -->
-                            </tr>
-                            <tr id="marks-table">
-                                <td class="marks-table">3</td> <!--Sr3 -->
-                                <td class="marks-table">HTML </td> <!--HTML -->
-                                <td class="marks-table">100 </td> <!--Max Marks -->
-                                <td class="marks-table" id="outPutHTMLMarks">000 </td> <!--Obtained -->
-                                <td class="marks-table" id="OutPuthtmlgrade">000 </td> <!--Grade -->
-                                <td class="marks-table" id="outputResulthtml">000 </td> <!--Result -->
-                            </tr>
-                            <tr id="marks-table">
-                                <td class="marks-table">4</td> <!--Sr4 -->
-                                <td class="marks-table">Mathematics </td> <!--Mathematics -->
-                                <td class="marks-table">100 </td> <!--Max Marks -->
-                                <td class="marks-table" id="outPutMathematicsmarks">000 </td> <!--Obtained -->
-                                <td class="marks-table" id="outputmathematicsgrade">000 </td> <!--Grade -->
-                                <td class="marks-table" id="outputResltmath">000 </td> <!--Result -->
-                            </tr>
-                            <tr id="marks-table">
-                                <td class="marks-table">5</td> <!--Sr5 -->
-                                <td class="marks-table">Full Stack Development</td> <!--Full Stack Development -->
-                                <td class="marks-table">100 </td> <!--Max Marks -->
-                                <td class="marks-table" id="outPutFullStackDevMarks">000 </td> <!--Obtained -->
-                                <td class="marks-table" id="outputfsdgrade">000 </td> <!--Grade -->
-                                <td class="marks-table" id="outputResultFSD">000 </td> <!--Result -->
-                            </tr>
+                        <div id="table-Main1-container">
+                            <table id="table-Main1">
+                                <thead>
+                                    <tr>
+                                        <th>Sr No.</th>
+                                        <th style="text-align: left;">Subject Name</th>
+                                        <th>Max Marks</th>
+                                        <th>Obtained Marks</th>
+                                        <th>Grade</th>
+                                        <th>Result</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dynamic-marks-body">
+                                    <!-- Javascript will inject marks rows here -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                    </table>
-                    <div>
-                        <h2 id="ResultSummary">Result Summary</h2>
+                    
+                    <!-- Result Summary Table -->
+                    <div style="margin-top: 3vw;">
+                        <div id="heading-m">
+                            <h2 style="font-size: 1.5vw;">Result Summary</h2>
+                        </div>
+                        <div id="ResultSummary-table-container">
+                            <table>
+                                <tr>
+                                    <th>Total Marks</th>
+                                    <th>Maximum Marks</th>
+                                    <th>Percentage</th>
+                                    <th>Overall Grade</th>
+                                    <th>Final Result</th>
+                                </tr>
+                                <tr>
+                                    <td id="totalMarks" style="font-weight: bold;">000</td>
+                                    <td id="maxTotalMarks">000</td>
+                                    <td id="percentage" style="font-weight: bold; color: #4a90e2;">000</td>
+                                    <td id="totalGrade" style="font-weight: bold;">000</td>
+                                    <td id="TotalResult" style="font-weight: bold;">000</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
-                    <table id="ResultSummary">
-                        <tr>
-                            <th class="l-t">Total Marks</th>
-                            <th class="l-t">Maximum Marks</th>
-                            <th class="l-t">Percentage</th>
-                            <th class="l-t">Grade</th>
-                            <th class="l-t">Result</th>
-                        </tr>
-                        <tr id="marks-table">
-                            <td id="totalMarks" class="marks-table">000 </td> <!--Roll No -->
-                            <td class="marks-table">500 </td> <!--Student Name -->
-                            <td id="percentage" class="marks-table">000 </td> <!--Father's Name -->
-                            <td class="marks-table" id="totalGrade">000 </td> <!--Total Grade -->
-                            <td class="marks-table" id="TotalResult">000 </td> <!--Total Result -->
+                    
+                    <div style="display: flex; justify-content: center; margin-top: 3vw;">
+                        <button onclick="window.location.reload()">Create New Marksheet</button>
+                    </div>
 
-                        </tr>
-                    </table>
                 </div>
             </div>
         </div>
     </section>
 
     <script>
-        let Course = document.getElementById("StudentCourse"); //input Course
-        let OutPutCourse = document.getElementById("marks-course") // outPut Course
-        let button1 = document.getElementById("button1"); // Generate MarkShhet button
-        let OutPutSemester = document.getElementById("marks-semester"); //output Semester
-        let InputSemester = document.getElementById("InputSemester"); // input Semester
-        let inPutRollNumber = document.getElementById("inPutRollNumber") //InPut Roll Number
-        let outputRollNumber = document.getElementById("outputRollNumber"); //outPut Roll Number
-        let inPutStudentName = document.getElementById("inPutStudentName"); // InPut Student Name
-        let outPutStudetName = document.getElementById("outPutStudetName"); // OutPut Student Name
-        let InPutFaterName = document.getElementById("InPutFaterName"); // Input Father Name
-        let OutPutFatherName = document.getElementById("OutPutFatherName"); // OutPut Father Name
-        let inDateOfBirth = document.getElementById("inPutDateOfBirth"); // input Date Of Birth
-        let outPutDateOfBirth = document.getElementById("outPutDateOfBirth"); //OutPut Date OF Birth
-        let OutPutCProgramaingMarkS = document.getElementById("OutPutMarkS"); //OutPut C++ Programing Marks    
-        let inputCPrograming = document.getElementById("inputCPrograming") //input C++ Programing Marks
-        let inPutJavaProgrammingMarks = document.getElementById("inPutJavaProgrammingMarks"); //input inPutJavaProgrammingMarks;
-        let OutPutJavaProgrammingMarks = document.getElementById("OutPutJavaProgrammingMarks"); // OutPutJavaProgrammingMarks
-        let inPutHTMLMarks = document.getElementById("inPutHTMLMarks"); //inPutHTMLMarks
-        let outPutHTMLMarks = document.getElementById("outPutHTMLMarks") //outPutHTMLMarks
-        let inPutMathematicsMarks = document.getElementById("inPutMathematicsMarks"); //inPutMathematicsMarks
-        let outPutMathematicsmarks = document.getElementById("outPutMathematicsmarks"); //outPutMathematicsmarks
-        let InputFullStackDevMarks = document.getElementById("InputFullStackDevMarks"); //InputFullStackDevMarks
-        let outPutFullStackDevMarks = document.getElementById("outPutFullStackDevMarks");//outPutFullStackDevMarks
-        let totalMarks = document.getElementById("totalMarks");
-        let outPutpercentage = document.getElementById("percentage");
-        let cresult = document.getElementById("cresult");
-        let OutPutCgrade = document.getElementById("OutPutCgrade");
-        let OutPutJavaProgrammingSubjectWiseMarks = document.getElementById("OutPutJavaProgrammingSubjectWiseMarks");
-        let outPutJavaGrade = document.getElementById("outPutJavaGrade");
-        let outputResulthtml = document.getElementById("outputResulthtml");
-        let OutPuthtmlgrade = document.getElementById("OutPuthtmlgrade");
-        let outputResltmath = document.getElementById("outputResltmath");
-        let outputmathematicsgrade = document.getElementById("outputmathematicsgrade");
-        let outputResultFSD = document.getElementById("outputResultFSD");
-        let outputfsdgrade = document.getElementById("outputfsdgrade");
-        let TotalResult = document.getElementById("TotalResult");
-        let totalGrade = document.getElementById("totalGrade");
-        let hideSheet = document.getElementById("hideSheet");
-        let hideHead = document.getElementById("hideHead");
-        let hide1 = document.getElementById("hide1");
+        // Course and their subjects data
+        const coursesData = {
+            "FSD": ["HTML & CSS", "JavaScript", "React JS", "Node JS", "MongoDB"],
+            "Web Design": ["HTML5", "CSS3", "Bootstrap", "Tailwind CSS", "UI/UX Basics"],
+            "Graphic Design": ["Photoshop", "Illustrator", "CorelDRAW", "Figma", "Color Theory"]
+        };
 
+        // DOM Elements
+        const courseSelect = document.getElementById("StudentCourse");
+        const dynamicSubjectsContainer = document.getElementById("dynamic-subjects");
+        const generateBtn = document.getElementById("button1");
+        
+        const hideHead = document.getElementById("hideHead");
+        const hide1 = document.getElementById("hide1");
+        const hideSheet = document.getElementById("hideSheet");
 
-
-        button1.addEventListener("click", () => {
-            hideSheet.style.display = "flex";
-            hideHead.style.display = "none"
-            hide1.style.display = "none "
-
-
-            OutPutCourse.innerText = Course.value;
-            OutPutSemester.innerText = InputSemester.value;
-            outputRollNumber.innerText = inPutRollNumber.value;
-            outPutStudetName.innerText = inPutStudentName.value;
-            OutPutFatherName.innerText = InPutFaterName.value;
-            outPutDateOfBirth.innerText = inDateOfBirth.value;
-            OutPutCProgramaingMarkS.innerText = inputCPrograming.value;
-            OutPutJavaProgrammingMarks.innerText = inPutJavaProgrammingMarks.value;
-            outPutHTMLMarks.innerText = inPutHTMLMarks.value;
-            outPutMathematicsmarks.innerText = inPutMathematicsMarks.value;
-            outPutFullStackDevMarks.innerText = InputFullStackDevMarks.value;
-
-            let cprog = Number(inputCPrograming.value);
-            let html = Number(inPutHTMLMarks.value);
-            let fsd = Number(InputFullStackDevMarks.value);
-            let Mathematics = Number(inPutMathematicsMarks.value);
-            let java = Number(inPutJavaProgrammingMarks.value);
-            let total = cprog + html + fsd + Mathematics + java; // Total Marks
-
-            console.log(total); //log
-            totalMarks.innerText = total;
-            // Calculate percentage once    
-            let percentage = total / 5;
-            outPutpercentage.innerText = percentage + "%";
-
-            // Logic: Start from the top
-            if (percentage < 30) {
-                totalGrade.innerText = "Fail(F)"
-            } else if (percentage < 50) {
-                totalGrade.innerText = "E"
-            } else if (percentage < 60) {
-                totalGrade.innerText = "D"
-            } else if (percentage < 70) {
-                totalGrade.innerText = "C"
-            } else if (percentage < 80) {
-                totalGrade.innerText = "B"
-            } else if (percentage < 90) {
-                totalGrade.innerText = "A"
-            } else if (percentage <= 100) {
-                totalGrade.innerText = "A+"
-            } else if (percentage > 100) {
-                totalGrade.innerText = "Wrong Marks"
-            }
-            function getGrade(Marks) {
-                if (Marks < 30) return "Fail"
-                if (Marks < 50) return "E"
-                if (Marks < 60) return "D"
-                if (Marks < 70) return "C"
-                if (Marks < 80) return "B"
-                if (Marks < 90) return "A"
-                if (Marks <= 100) return "A+"
-                return "Wrong Marks"
-            }
-            function getResult(Marks) {
-                if (Marks < 30) return "Fail"
-                if (Marks <= 100) return "Pass"
-                return "Wrong Marks"
-            }
-
-            // C++ PrC++ Programming
-            OutPutCgrade.innerText = getGrade(cprog);
-            cresult.innerText = getResult(cprog);
-            //Java Programming
-            outPutJavaGrade.innerText = getGrade(java);
-            OutPutJavaProgrammingSubjectWiseMarks.innerText = getResult(java)
-            //HTML
-            OutPuthtmlgrade.innerText = getGrade(html);
-            outputResulthtml.innerText = getResult(html);
-            //Mathematics
-            outputmathematicsgrade.innerText = getGrade(Mathematics);
-            outputResltmath.innerText = getResult(Mathematics);
-            //Full Stack Development
-            outputfsdgrade.innerText = getGrade(fsd);
-            outputResultFSD.innerText = getResult(fsd);
-            if (cprog < 30 || html < 30 || java < 30 || fsd < 30 || Mathematics < 30) {
-                TotalResult.innerText = "Fail"
-            }
-            else if (cprog <= 100 && html <= 100 && java <= 100 && fsd <= 100 && Mathematics <= 100) {
-                TotalResult.innerText = "Pass"
-            }
-            else {
-                TotalResult.innerText = "Wrong Marks"
+        // Event Listener: When a course is selected
+        courseSelect.addEventListener("change", (e) => {
+            const selectedCourse = e.target.value;
+            dynamicSubjectsContainer.innerHTML = ""; // Clear existing subjects
+            
+            if (coursesData[selectedCourse]) {
+                dynamicSubjectsContainer.classList.remove("hidden");
                 
+                // Add subjects for selected course
+                coursesData[selectedCourse].forEach(subject => {
+                    const div = document.createElement("div");
+                    div.id = "Course-box";
+                    div.innerHTML = `
+                        <h3 class="subject-label">${subject}:-</h3>
+                        <input class="College-name subject-input" data-subject="${subject}" type="number" placeholder="Marks (0-100)" min="0" max="100">
+                    `;
+                    dynamicSubjectsContainer.appendChild(div);
+                });
+            } else {
+                dynamicSubjectsContainer.classList.add("hidden");
             }
-        })    
+        });
+
+        // Helper Functions for Grade and Result determination
+        function getGrade(marks) {
+            if (marks < 0 || marks > 100) return "Invalid";
+            if (marks < 30) return "Fail";
+            if (marks < 50) return "E";
+            if (marks < 60) return "D";
+            if (marks < 70) return "C";
+            if (marks < 80) return "B";
+            if (marks < 90) return "A";
+            if (marks <= 100) return "A+";
+            return "Invalid";
+        }
+
+        function getResult(marks) {
+            if (marks < 0 || marks > 100) return "Invalid";
+            if (marks < 30) return "Fail";
+            return "Pass";
+        }
+
+        // Marksheet generation logic
+        generateBtn.addEventListener("click", () => {
+            // Validation: Check if a course is selected
+            if (courseSelect.value === "") {
+                alert("Please select a Course first!");
+                return;
+            }
+
+            // Transfer Header Info
+            document.getElementById("marks-course").innerText = courseSelect.value;
+            document.getElementById("marks-semester").innerText = document.getElementById("InputSemester").value || "N/A";
+            document.getElementById("outputRollNumber").innerText = document.getElementById("inPutRollNumber").value || "N/A";
+            document.getElementById("outPutStudetName").innerText = document.getElementById("inPutStudentName").value || "N/A";
+            document.getElementById("OutPutFatherName").innerText = document.getElementById("InPutFaterName").value || "N/A";
+            
+            // Date formatting
+            let dob = document.getElementById("inPutDateOfBirth").value;
+            document.getElementById("outPutDateOfBirth").innerText = dob ? dob.split("-").reverse().join("-") : "N/A";
+
+            // Process Marks calculations
+            const subjectInputs = document.querySelectorAll(".subject-input");
+            const marksBody = document.getElementById("dynamic-marks-body");
+            marksBody.innerHTML = ""; // Clear existing table rows
+
+            let totalObtainedMarks = 0;
+            let totalMaxMarks = subjectInputs.length * 100;
+            let hasFailed = false;
+            let hasInvalidMarks = false;
+
+            subjectInputs.forEach((input, index) => {
+                const subjectName = input.getAttribute("data-subject");
+                const marks = Number(input.value);
+                
+                totalObtainedMarks += marks;
+                const grade = getGrade(marks);
+                const result = getResult(marks);
+
+                if (marks < 30) hasFailed = true;
+                if (marks < 0 || marks > 100) hasInvalidMarks = true;
+
+                // Create Table Row for this subject
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td style="text-align: left; font-weight: bold;">${subjectName}</td>
+                    <td>100</td>
+                    <td style="font-weight: bold;">${marks}</td>
+                    <td style="color: ${grade === 'Fail' || grade === 'Invalid' ? '#e74c3c' : '#2c3e50'}; font-weight: bold;">${grade}</td>
+                    <td style="color: ${result === 'Fail' || result === 'Invalid' ? '#e74c3c' : '#27ae60'}; font-weight: bold;">${result}</td>
+                `;
+                marksBody.appendChild(tr);
+            });
+
+            // Calculate overall percentage
+            let overallPercentage = (totalObtainedMarks / totalMaxMarks) * 100;
+
+            document.getElementById("totalMarks").innerText = totalObtainedMarks;
+            document.getElementById("maxTotalMarks").innerText = totalMaxMarks;
+            document.getElementById("percentage").innerText = overallPercentage.toFixed(2) + "%";
+
+            // Overall Grade and Final Result Logic
+            let finalGradeElem = document.getElementById("totalGrade");
+            let finalResultElem = document.getElementById("TotalResult");
+
+            if (hasInvalidMarks) {
+                finalGradeElem.innerText = "Invalid";
+                finalResultElem.innerText = "Wrong Marks Entered";
+                finalResultElem.style.color = "#e74c3c";
+            } else if (hasFailed) {
+                finalGradeElem.innerText = "Fail (F)";
+                finalResultElem.innerText = "Fail";
+                finalResultElem.style.color = "#e74c3c";
+            } else {
+                finalGradeElem.innerText = getGrade(overallPercentage);
+                finalResultElem.innerText = "Pass";
+                finalResultElem.style.color = "#27ae60";
+            }
+
+            // Toggle UI display state
+            hideHead.style.display = "none";
+            hide1.style.display = "none";
+            hideSheet.style.display = "flex";
+        });
     </script>
 </body>
 </html>
