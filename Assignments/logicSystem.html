@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div id="main">
+        <form>
+            <label style="font-size: 1.5rem;"><b>Email : </b></label>
+            <input class="email" type="text" , placeholder=" Enter admin email"><br>
+            <label style="font-size: 1.5rem;"><b>Password : </b></label>
+            <input class="pass" type="password" , placeholder=" Enter password"><br><br>
+            <button id="check" style="height: 40px; width: 100px; font-size: 1rem;" type="button"><b>Submit</b></button>
+        </form>
+
+    </div>
+    <div id="box">
+
+    </div>
+
+
+    <script>
+        let inputField = document.getElementById("main");
+        let button = document.getElementById("check");
+        let email = document.getElementsByClassName("email")[0];
+        let pass = document.getElementsByClassName("pass")[0];
+        let box = document.getElementById("box");
+
+        const validEmail = "admin@gmail.com";
+        const validPassword = "admin123";
+
+        button.addEventListener("click", () => {
+
+            if (email.value === validEmail && pass.value === validPassword) {
+                
+                box.innerText="Login Successful";
+            } else {
+                
+                box.innerText="Invalid Username or Password";
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>

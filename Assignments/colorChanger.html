@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <input type="number" id="numInput" class="even" placeholder="Enter day" style="width: 350px;">
+        <button id="check">check</button>
+    </div>
+
+    <div id="box" style="height: 100px; width: 100px;">
+
+    </div>
+
+
+   <script>
+    let inputField = document.getElementsByClassName("even")[0];
+    let button = document.getElementById("check");
+    let box = document.getElementById("box");
+
+    let red = "red"
+
+    let colors = [ red, "green", "blue","black"];
+    console.log(colors.length);
+    
+    let index = 0;
+
+    button.addEventListener("click", function () {
+        box.style.backgroundColor = colors[index];
+        index = (index + 1) % colors.length;
+    });
+</script>
+
+</body>
+
+</html>
