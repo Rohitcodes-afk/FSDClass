@@ -4,43 +4,114 @@
 <head>
     <meta charset="UTF-8">
     <title>To Do List</title>
-
-    <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-        }
-
-        input {
-            padding: 10px;
-            margin: 10px;
-        }
-
-        button {
-            padding: 10px;
-            margin: 5px;
-        }
-
-        li {
-            margin: 10px;
-        }
-    </style>
-
 </head>
 
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        background: linear-gradient(120deg, #f5dcdc, #e6f0ff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    #container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #head {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+
+    #task {
+        width: 80%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        outline: none;
+        margin-bottom: 10px;
+    }
+
+    button {
+        padding: 10px 15px;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    ul {
+        width: 100%;
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #f9f9f9;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+    }
+
+    li span {
+        cursor: pointer;
+    }
+
+    li button {
+        background-color: rgb(247, 106, 106);
+        padding: 5px 8px;
+    }
+
+    li button:hover {
+        background-color: darkred;
+    }
+</style>
+
 <body>
+    <div id="container">
+        <h2>To Do List</h2>
+        <label id="head"><b>Task</b></label>
 
-    <h2>To Do List</h2>
+        <input type="text" id="task" placeholder="Enter task">
+        <button onclick="addTask()">Add</button>
 
-    <input type="text" id="task" placeholder="Enter task">
-    <button onclick="addTask()">Add</button>
+        <ul id="list"></ul>
+    </div>
 
-    <ul id="list"></ul>
+
+
 
     <script>
         let list = document.getElementById("list");
         let tasks = [];
 
+        // Add Task
         function addTask() {
             let taskInput = document.getElementById("task").value;
 
@@ -49,33 +120,44 @@
                 return;
             }
 
-            tasks.push(taskInput);
+            tasks.push({ text: taskInput, done: false });
             document.getElementById("task").value = "";
 
             showTasks();
         }
 
+        // Show Tasks
         function showTasks() {
             list.innerHTML = "";
 
             for (let i = 0; i < tasks.length; i++) {
-                list.innerHTML += `
+                list.innerHTML += ` 
                     <li>
-                        ${tasks[i]} 
+                        <span 
+                            onclick="checkTask(${i})" 
+                            style="cursor:pointer; text-decoration:${tasks[i].done ? 'line-through' : 'none'}">
+                            ${tasks[i].text}
+                        </span>
+
                         <button onclick="removeTask(${i})">❌</button>
                     </li>
                 `;
             }
         }
 
+        // Remove Task
         function removeTask(index) {
-            tasks.splice(index, 1); // remove 1 item from array
-            showTasks(); // refresh list
+            tasks.splice(index, 1);
+            showTasks();
+        }
+
+        // Strike-through toggle
+        function checkTask(index) {
+            tasks[index].done = !tasks[index].done;
+            showTasks();
         }
 
     </script>
-
-</body>
 
 </body>
 
