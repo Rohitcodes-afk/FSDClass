@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+
+<body>
+
+<input id="a" style="margin: 10px;"><br>
+<input id="b" style="margin: 10px;"><br>
+
+<button onclick="add()" style="margin: 10px;">Add</button>
+
+<script>
+function add() {
+    let a = Number(document.getElementById("a").value);
+    let b = Number(document.getElementById("b").value);
+
+    alert("Sum = " + (a + b));
+}
+</script>
+
+</body>
+</html>

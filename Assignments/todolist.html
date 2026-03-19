@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        li {
+            margin: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h2>To Do List</h2>
+
+    <input type="text" id="task" placeholder="Enter task">
+    <button onclick="addTask()">Add</button>
+
+    <ul id="list"></ul>
+
+    <script>
+        let list = document.getElementById("list");
+        let task = document.getElementById("task").value;
+
+        let tasks = [];
+
+        function addTask() {
+
+        }
+
+
+        function showTasks() {
+
+            list.innerHTML = "";
+
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
