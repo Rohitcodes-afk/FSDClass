@@ -39,25 +39,43 @@
 
     <script>
         let list = document.getElementById("list");
-        let task = document.getElementById("task").value;
-
         let tasks = [];
 
         function addTask() {
+            let taskInput = document.getElementById("task").value;
 
+            if (taskInput === "") {
+                alert("Please enter a task");
+                return;
+            }
+
+            tasks.push(taskInput);
+            document.getElementById("task").value = "";
+
+            showTasks();
         }
-
 
         function showTasks() {
-
             list.innerHTML = "";
 
-
+            for (let i = 0; i < tasks.length; i++) {
+                list.innerHTML += `
+                    <li>
+                        ${tasks[i]} 
+                        <button onclick="removeTask(${i})">❌</button>
+                    </li>
+                `;
+            }
         }
 
-
+        function removeTask(index) {
+            tasks.splice(index, 1); // remove 1 item from array
+            showTasks(); // refresh list
+        }
 
     </script>
+
+</body>
 
 </body>
 
