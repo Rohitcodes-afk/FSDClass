@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #table {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .table-box {
+        width: 18%;
+        list-style: none;
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+</style>
+
+<body>
+
+
+
+    <div id="table">
+
+    </div>
+
+    <div id="table"></div>
+
+    <script>
+        let output = document.getElementById("table");
+
+        for (let i = 1; i <= 10; i++) {
+
+            let ul = document.createElement("ul");
+            ul.classList.add("table-box");
+
+            let title = document.createElement("li");
+            title.innerText = `Table of ${i}`;
+            ul.appendChild(title);
+
+            for (let j = 1; j <= 10; j++) {
+                let li = document.createElement("li");
+                li.innerText = `${i} x ${j} = ${i * j}`;
+                ul.appendChild(li);
+            }
+
+            output.appendChild(ul);
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>
