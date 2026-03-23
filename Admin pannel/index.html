@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            background: #f4f6f9;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 220px;
+            height: 100vh;
+            background: #111827;
+            color: white;
+            padding: 20px;
+            position: fixed;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            padding: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        #student {
+            padding: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.3s;
+            color: #f3f4f6;
+            text-decoration: none;
+
+        }
+
+        .sidebar ul li:hover {
+            background: #374151;
+        }
+
+        /* Main */
+        .main {
+            margin-left: 220px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        /* Topbar */
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .logout {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .logout:hover {
+            background: #dc2626;
+        }
+
+        /* Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .card p {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Table */
+        .table-section {
+            margin-top: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #f3f4f6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li>Dashboard</li>
+            <a id="student" href="./student.html">
+                <li>Students</li>
+            </a>
+            <li>Courses</li>
+            <li>Fees</li>
+            <li>Settings</li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+
+        <!-- Topbar -->
+        <div class="topbar">
+            <h2>Welcome Admin 👋</h2>
+            <button class="logout" onclick="logout()">Logout</button>
+        </div>
+
+        <!-- Cards -->
+        <div class="cards">
+            <div class="card">
+                <h3>Total Students</h3>
+                <p>120</p>
+            </div>
+            <div class="card">
+                <h3>Total Courses</h3>
+                <p>8</p>
+            </div>
+            <div class="card">
+                <h3>Revenue</h3>
+                <p>₹50,000</p>
+            </div>
+            <div class="card">
+                <h3>Pending Fees</h3>
+                <p>₹10,000</p>
+            </div>
+        </div>
+
+        <!-- Table -->
+        <div class="table-section">
+            <h3>Recent Students</h3>
+
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Course</th>
+                    <th>Status</th>
+                </tr>
+
+                <tr>
+                    <td>Rahul</td>
+                    <td>Excel</td>
+                    <td>Active</td>
+                </tr>
+
+                <tr>
+                    <td>Priya</td>
+                    <td>Tally</td>
+                    <td>Pending</td>
+                </tr>
+
+                <tr>
+                    <td>Aman</td>
+                    <td>AI Course</td>
+                    <td>Active</td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+        function logout() {
+            alert("Logged out!");
+            window.location.href = " ./logicSystem.html";
+        }
+    </script>
+
+</body>
+
+</html>
