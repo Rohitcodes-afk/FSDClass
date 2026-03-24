@@ -1,174 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Students</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
 
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial;
+        }
 
-    body {
-        display: flex;
-        background: #f4f6f9;
-    }
+        body {
+            display: flex;
+            background: #f4f6f9;
+        }
 
-    /* Sidebar */
-    .sidebar {
-        width: 220px;
-        height: 100vh;
-        background: #111827;
-        color: white;
-        padding: 20px;
-        position: fixed;
-    }
+        /* Sidebar */
+        .sidebar {
+            width: 220px;
+            height: 100vh;
+            background: #111827;
+            color: white;
+            padding: 20px;
+            position: fixed;
+        }
 
-    .sidebar h2 {
-        margin-bottom: 30px;
-        text-align: center;
-    }
+        .sidebar h2 {
+            margin-bottom: 30px;
+            text-align: center;
+        }
 
-    .sidebar ul {
-        list-style: none;
-    }
+        .sidebar ul {
+            list-style: none;
+        }
 
-    .sidebar ul li {
-        padding: 12px;
-        margin-bottom: 10px;
-        cursor: pointer;
-        border-radius: 6px;
-    }
+        .sidebar ul li {
+            padding: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border-radius: 6px;
+        }
 
-    .sidebar ul li:hover {
-        background: #374151;
-    }
+        .sidebar ul li:hover {
+            background: #374151;
+        }
 
-    /* Main Content */
-    .main {
-        margin-left: 220px;
-        padding: 20px;
-        width: 100%;
-    }
+        /* Main Content */
+        .main {
+            margin-left: 220px;
+            padding: 20px;
+            width: 100%;
+        }
 
-    h2 {
-        margin-bottom: 15px;
-    }
+        h2 {
+            margin-bottom: 15px;
+        }
 
-    .form-box {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        margin-bottom: 20px;
-    }
+        .form-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
 
-    input {
-        padding: 10px;
-        margin: 10px 10px 10px 0;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-    }
+        input {
+            padding: 10px;
+            margin: 10px 10px 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
 
-    button {
-        padding: 10px 15px;
-        border: none;
-        background: #6c63ff;
-        color: white;
-        border-radius: 6px;
-        cursor: pointer;
-    }
+        button {
+            padding: 10px 15px;
+            border: none;
+            background: #6c63ff;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
 
-    button:hover {
-        background: #574fd6;
-    }
+        button:hover {
+            background: #574fd6;
+        }
 
-    table {
-        width: 100%;
-        background: white;
-        border-collapse: collapse;
-        border-radius: 10px;
-        overflow: hidden;
-    }
+        table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+        }
 
-    th, td {
-        padding: 12px;
-        border-bottom: 1px solid #ddd;
-    }
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
 
-    th {
-        background: #f3f4f6;
-    }
+        th {
+            background: #f3f4f6;
+        }
 
-    .delete-btn {
-        background: red;
-    }
+        .delete-btn {
+            background: red;
+        }
 
-    .logout {
-        background: #ef4444;
-        margin-top: 20px;
-        width: 100%;
-    }
-</style>
+        .logout {
+            background: #ef4444;
+            margin-top: 20px;
+            width: 100%;
+        }
+        #student{
+            color: #f3f4f6;
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- ✅ Sidebar -->
-<div class="sidebar">
-    <h2>Admin Panel</h2>
-    <ul>
-        <li onclick="window.location.href='./index.html'">Dashboard</li>
-        <li onclick="window.location.href='students.html'">Students</li>
-        <li>Courses</li>
-        <li>Fees</li>
-        <li>Settings</li>
-    </ul>
+    <!-- ✅ Sidebar -->
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li onclick="window.location.href='./index.html'">Dashboard</li>
+            <li onclick="window.location.href='./student.html'">Students</li>
+            <a id="student" href="./courses.html">
+                <li>Courses</li>
+            </a>
+            <li>Fees</li>
+            <li>Settings</li>
+        </ul>
 
-    <button class="logout" onclick="logout()">Logout</button>
-</div>
-
-<!-- ✅ Main Content -->
-<div class="main">
-
-    <h2>🎓 Student Management</h2>
-
-    <!-- Form -->
-    <div class="form-box">
-        <input type="text" id="name" placeholder="Student Name">
-        <input type="text" id="course" placeholder="Course">
-        <input type="text" id="status" placeholder="Status">
-        <button onclick="addStudent()">Add Student</button>
+        <button class="logout" onclick="logout()">Logout</button>
     </div>
 
-    <!-- Table -->
-    <table id="studentTable">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Course</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+    <!-- ✅ Main Content -->
+    <div class="main">
 
-</div>
+        <h2>🎓 Student Management</h2>
 
-<script>
-    let students = JSON.parse(localStorage.getItem("students")) || [];
+        <!-- Form -->
+        <div class="form-box">
+            <input type="text" id="name" placeholder="Student Name">
+            <input type="text" id="course" placeholder="Course">
+            <input type="text" id="status" placeholder="Status">
+            <button onclick="addStudent()">Add Student</button>
+        </div>
 
-    function renderStudents() {
-        let tbody = document.querySelector("#studentTable tbody");
-        tbody.innerHTML = "";
+        <!-- Table -->
+        <table id="studentTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Course</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
 
-        students.forEach((student, index) => {
-            let row = `
+    </div>
+
+    <script>
+        let students = JSON.parse(localStorage.getItem("students")) || [];
+
+        function renderStudents() {
+            let tbody = document.querySelector("#studentTable tbody");
+            tbody.innerHTML = "";
+
+            students.forEach((student, index) => {
+                let row = `
                 <tr>
                     <td>${student.name}</td>
                     <td>${student.course}</td>
@@ -176,43 +184,44 @@
                     <td><button class="delete-btn" onclick="deleteStudent(${index})">Delete</button></td>
                 </tr>
             `;
-            tbody.innerHTML += row;
-        });
-    }
-
-    function addStudent() {
-        let name = document.getElementById("name").value;
-        let course = document.getElementById("course").value;
-        let status = document.getElementById("status").value;
-
-        if (name === "" || course === "" || status === "") {
-            alert("Please fill all fields");
-            return;
+                tbody.innerHTML += row;
+            });
         }
 
-        students.push({ name, course, status });
-        localStorage.setItem("students", JSON.stringify(students));
+        function addStudent() {
+            let name = document.getElementById("name").value;
+            let course = document.getElementById("course").value;
+            let status = document.getElementById("status").value;
+
+            if (name === "" || course === "" || status === "") {
+                alert("Please fill all fields");
+                return;
+            }
+
+            students.push({ name, course, status });
+            localStorage.setItem("students", JSON.stringify(students));
+
+            renderStudents();
+
+            document.getElementById("name").value = "";
+            document.getElementById("course").value = "";
+            document.getElementById("status").value = "";
+        }
+
+        function deleteStudent(index) {
+            students.splice(index, 1);
+            localStorage.setItem("students", JSON.stringify(students));
+            renderStudents();
+        }
+
+        function logout() {
+            alert("Logged out!");
+            window.location.href = "./logicSystem.html";
+        }
 
         renderStudents();
-
-        document.getElementById("name").value = "";
-        document.getElementById("course").value = "";
-        document.getElementById("status").value = "";
-    }
-
-    function deleteStudent(index) {
-        students.splice(index, 1);
-        localStorage.setItem("students", JSON.stringify(students));
-        renderStudents();
-    }
-
-    function logout() {
-        alert("Logged out!");
-        window.location.href = "./logicSystem.html";
-    }
-
-    renderStudents();
-</script>
+    </script>
 
 </body>
+
 </html>

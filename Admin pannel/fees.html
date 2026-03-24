@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fees Management</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial;
+    }
+
+    body {
+        display: flex;
+        background: #f4f6f9;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 220px;
+        height: 100vh;
+        background: #111827;
+        color: white;
+        padding: 20px;
+        position: fixed;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .sidebar ul {
+        list-style: none;
+    }
+
+    .sidebar ul li {
+        padding: 12px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        border-radius: 6px;
+    }
+
+    .sidebar ul li:hover {
+        background: #374151;
+    }
+
+    .logout {
+        background: #ef4444;
+        margin-top: 20px;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* Main */
+    .main {
+        margin-left: 220px;
+        padding: 20px;
+        width: 100%;
+    }
+
+    h2 {
+        margin-bottom: 15px;
+    }
+
+    .form-box {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+
+    input, select {
+        padding: 10px;
+        margin: 10px 10px 10px 0;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        padding: 10px 15px;
+        border: none;
+        background: #6c63ff;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #574fd6;
+    }
+
+    table {
+        width: 100%;
+        background: white;
+        border-collapse: collapse;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    th, td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background: #f3f4f6;
+    }
+
+    .delete-btn {
+        background: red;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+        <li onclick="window.location.href='index.html'">Login</li>
+        <li onclick="window.location.href='dashboard.html'">Dashboard</li>
+        <li onclick="window.location.href='student.html'">Students</li>
+        <li onclick="window.location.href='courses.html'">Courses</li>
+        <li onclick="window.location.href='fees.html'">Fees</li>
+    </ul>
+
+    <button class="logout" onclick="logout()">Logout</button>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+    <h2>💰 Fees Management</h2>
+
+    <!-- Form -->
+    <div class="form-box">
+        <select id="studentSelect"></select>
+        <select id="courseSelect"></select>
+        <input type="number" id="amount" placeholder="Fees Amount">
+        <select id="status">
+            <option value="">Select Status</option>
+            <option value="Paid">Paid</option>
+            <option value="Pending">Pending</option>
+        </select>
+
+        <button onclick="addFees()">Add Fees</button>
+    </div>
+
+    <!-- Table -->
+    <table id="feesTable">
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Course</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+</div>
+
+<script>
+    let feesData = JSON.parse(localStorage.getItem("fees")) || [];
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    let courses = JSON.parse(localStorage.getItem("courses")) || [];
+
+    function loadDropdowns() {
+        let studentSelect = document.getElementById("studentSelect");
+        let courseSelect = document.getElementById("courseSelect");
+
+        studentSelect.innerHTML = "<option value=''>Select Student</option>";
+        courseSelect.innerHTML = "<option value=''>Select Course</option>";
+
+        students.forEach(s => {
+            studentSelect.innerHTML += `<option value="${s.name}">${s.name}</option>`;
+        });
+
+        courses.forEach(c => {
+            courseSelect.innerHTML += `<option value="${c.name}">${c.name}</option>`;
+        });
+    }
+
+    function renderFees() {
+        let tbody = document.querySelector("#feesTable tbody");
+        tbody.innerHTML = "";
+
+        feesData.forEach((f, index) => {
+            let row = `
+                <tr>
+                    <td>${f.student}</td>
+                    <td>${f.course}</td>
+                    <td>₹${f.amount}</td>
+                    <td>${f.status}</td>
+                    <td><button class="delete-btn" onclick="deleteFees(${index})">Delete</button></td>
+                </tr>
+            `;
+            tbody.innerHTML += row;
+        });
+    }
+
+    function addFees() {
+        let student = document.getElementById("studentSelect").value;
+        let course = document.getElementById("courseSelect").value;
+        let amount = document.getElementById("amount").value;
+        let status = document.getElementById("status").value;
+
+        if (!student || !course || !amount || !status) {
+            alert("Fill all fields");
+            return;
+        }
+
+        feesData.push({ student, course, amount, status });
+        localStorage.setItem("fees", JSON.stringify(feesData));
+
+        renderFees();
+    }
+
+    function deleteFees(index) {
+        feesData.splice(index, 1);
+        localStorage.setItem("fees", JSON.stringify(feesData));
+        renderFees();
+    }
+
+    function logout() {
+        alert("Logged out!");
+        window.location.href = "index.html";
+    }
+
+    loadDropdowns();
+    renderFees();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial;
+    }
+
+    body {
+        display: flex;
+        background: #f4f6f9;
+    }
+
+    .sidebar {
+        width: 220px;
+        height: 100vh;
+        background: #111827;
+        color: white;
+        padding: 20px;
+        position: fixed;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .sidebar ul {
+        list-style: none;
+    }
+
+    .sidebar ul li {
+        padding: 12px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        border-radius: 6px;
+    }
+
+    .sidebar ul li:hover {
+        background: #374151;
+    }
+
+    .logout {
+        background: #ef4444;
+        margin-top: 20px;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .main {
+        margin-left: 220px;
+        padding: 20px;
+        width: 100%;
+    }
+
+    .form-box {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+
+    input, select {
+        padding: 10px;
+        margin: 10px 10px 10px 0;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        padding: 10px 15px;
+        border: none;
+        background: #6c63ff;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #574fd6;
+    }
+
+    table {
+        width: 100%;
+        background: white;
+        border-collapse: collapse;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    th, td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background: #f3f4f6;
+    }
+
+    .delete-btn {
+        background: red;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+        <li onclick="window.location.href='dashboard.html'">Dashboard</li>
+        <li onclick="window.location.href='student.html'">Students</li>
+        <li onclick="window.location.href='courses.html'">Courses</li>
+        <li onclick="window.location.href='fees.html'">Fees</li>
+    </ul>
+
+    <button class="logout" onclick="logout()">Logout</button>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+    <h2>📚 Course + Student Mapping</h2>
+
+    <!-- Form -->
+    <div class="form-box">
+        <input type="text" id="studentSelect" placeholder="Student name"> 
+        <input type="text" id="cname" placeholder="Course Name">
+        <input type="text" id="duration" placeholder="Duration">
+        <input type="text" id="fees" placeholder="Fees (₹)">
+        <button onclick="addCourse()">Add</button>
+    </div>
+
+    <!-- Table -->
+    <table id="courseTable">
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Course</th>
+                <th>Duration</th>
+                <th>Fees</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+</div>
+
+<script>
+    let courses = JSON.parse(localStorage.getItem("courses")) || [];
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+
+    function loadStudents() {
+        let select = document.getElementById("studentSelect");
+        select.innerHTML = "<option value=''>Select Student</option>";
+
+        students.forEach(s => {
+            select.innerHTML += `<option value="${s.name}">${s.name}</option>`;
+        });
+    }
+
+    function renderCourses() {
+        let tbody = document.querySelector("#courseTable tbody");
+        tbody.innerHTML = "";
+
+        courses.forEach((course, index) => {
+            let row = `
+                <tr>
+                    <td>${course.student}</td>
+                    <td>${course.name}</td>
+                    <td>${course.duration}</td>
+                    <td>₹${course.fees}</td>
+                    <td><button class="delete-btn" onclick="deleteCourse(${index})">Delete</button></td>
+                </tr>
+            `;
+            tbody.innerHTML += row;
+        });
+    }
+
+    function addCourse() {
+        let student = document.getElementById("studentSelect").value;
+        let name = document.getElementById("cname").value;
+        let duration = document.getElementById("duration").value;
+        let fees = document.getElementById("fees").value;
+
+        if (!student || !name || !duration || !fees) {
+            alert("Fill all fields");
+            return;
+        }
+
+        courses.push({ student, name, duration, fees });
+        localStorage.setItem("courses", JSON.stringify(courses));
+
+        renderCourses();
+    }
+
+    function deleteCourse(index) {
+        courses.splice(index, 1);
+        localStorage.setItem("courses", JSON.stringify(courses));
+        renderCourses();
+    }
+
+    function logout() {
+        alert("Logged out!");
+        window.location.href = "index.html";
+    }
+
+    loadStudents();
+    renderCourses();
+</script>
+
+</body>
+</html>
